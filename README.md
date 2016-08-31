@@ -4,9 +4,9 @@
 
 # How to complete this project?
 
-[x] Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
-[x] Take the JavaScript Testing [course](https://www.udacity.com/course/ud549)
-[x] Download the [required project assets](http://github.com/udacity/frontend-nanodegree-feedreader).
+-[x] Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
+-[x] Take the JavaScript Testing [course](https://www.udacity.com/course/ud549)
+-[x] Download the [required project assets](http://github.com/udacity/frontend-nanodegree-feedreader).
 [x] Review the functionality of the application within your browser.
 [x] Explore the application's HTML (**./index.html**), CSS (**./css/style.css**) and JavaScript (**./js/app.js**) to gain an understanding of how it works.
 [x] Explore the Jasmine spec file in **./jasmine/spec/feedreader.js** and review the [Jasmine documentation](http://jasmine.github.io).
