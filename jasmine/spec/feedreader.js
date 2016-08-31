@@ -26,12 +26,17 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
+        it('have a URL defined', function() {
 
+        });
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
 
+        it('have defined names', function(){
+
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
@@ -39,6 +44,16 @@ $(function() {
          */
     });
 
+
+    describe('The menu', function(){
+        it('is hidden by default', function(){
+
+        });
+
+        it('changes visibility when menu icon is clicked', function(){
+
+        });
+    });
 
     /* TODO: Write a new test suite named "The menu" */
 
@@ -54,6 +69,13 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 
+
+    describe('Initial Entries', function(){
+        it('are defined', function() {
+
+        });
+    });
+
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -63,6 +85,12 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 
+
+    describe('New Feed Selection', function() {
+        it('changes when a new feed is loaded', function(){
+            
+        });
+    });
     /* TODO: Write a new test suite named "New Feed Selection"
 
         /* TODO: Write a test that ensures when a new feed is loaded
