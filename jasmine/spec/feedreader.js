@@ -74,7 +74,7 @@ $(function() {
          * clicked and 2) does it hide when clicked again.
          */
         it('changes visibility when menu icon is clicked', function(){
-            menuIcon = $('.menu-icon-link');
+            var menuIcon = $('.menu-icon-link');
             //menu displays on first click
             menuIcon.click();
             expect($body.hasClass('menu-hidden')).toBeFalsy();
@@ -90,16 +90,13 @@ $(function() {
      */
     describe('Initial Entries', function(){
 
-        /*This is the first test in our third suite -
-        * it tests that there is at minimum a single .entry
-        * element with the .feed container after the loadFeed()
-        * function is called asynchronously and has completed its work.
-        */
+        /* This is the first test in our third suite -
+         * it tests that there is at minimum a single .entry
+         * element with the .feed container after the loadFeed()
+         * function is called asynchronously and has completed its work.
+         */
         beforeEach(function(done) {
-          setTimeout(function() {
-            loadFeed(0);
-            done();
-          }, 1);
+            loadFeed(0, done());
         });
 
         it('are defined', function(done) {
@@ -113,12 +110,32 @@ $(function() {
      * about the loading of new feeds by the loadFeed() function.
      */
     describe('New Feed Selection', function() {
-        it('changes when a new feed is loaded', function(){
+
+        /* This is the first test in our fourth suite -
+         * it tests that the content of the .feed container
+         * changes when a new feed is loaded by the
+         * asynchronous loadFeed() function.
+         */
+        var container = $('.feed'),
+            title = $('.header-title'),
+            titleOne,
+            titleTwo;
+
+        beforeEach(function(done) {
+            container.empty();
+            loadFeed(1, function() {
+                titleOne = title.html();
+            });
+
+            loadFeed(0, function() {
+                titleTwo = title.html();
+                done();
+            });
 
         });
+
+        it('changes when a new feed is loaded', function(){
+            expect(titleOne).not.toMatch(titleTwo);
+        });
     });
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
 }());
