@@ -3,7 +3,7 @@
 2. Open the index.html file in any browser.
 3. Enjoy the pretty green lights!
 
-![Jasmine-Green](jasmine-green.jpg)
+![alt text](jasmine-green.JPG "pretty green lights")
 
 # To Complete This Project:
 
