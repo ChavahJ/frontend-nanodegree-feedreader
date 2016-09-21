@@ -122,14 +122,14 @@ $(function() {
             titleTwo;
 
         beforeEach(function(done) {
-            container.empty();
-            loadFeed(1, function() {
-                titleOne = title.html();
+            container.empty(); // Empty out all previous entries
+            loadFeed(0, function() {
+                titleOne = title.html(); // Get header text of the 1st entry
             });
 
-            loadFeed(0, function() {
-                titleTwo = title.html();
-                done();
+            loadFeed(1, function() {
+                titleTwo = title.html(); // Get header text of the 2nd entry
+                done(); //function will get called when async work is done
             });
 
         });
