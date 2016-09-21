@@ -1,4 +1,9 @@
 # To Run This Application:
+1. [Clone or download this project] (https://github.com/ChavahJ/frontend-nanodegree-feedreader/pull/new/master).
+2. Open the index.html file in any browser.
+3. Enjoy the pretty green lights!
+
+![Jasmine-Green](jasmine-green.jpg)
 
 # To Complete This Project:
 
