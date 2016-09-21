@@ -14,21 +14,17 @@ $(function() {
     * feeds definitions, the allFeeds variable in our application.
     */
     describe('RSS Feeds', function() {
-        /* This is our first test - it tests to make sure that the
-         * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
+        /* This is our first test in our first suite - it tests that
+         * the allFeeds variable has been defined and that it is not
+         * empty.
          */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
-
-        /* This is our second test - it tests that each feed
-         * in the allFeeds object has a URL defined
-         * and that the URL is not empty.
+        /* This is our second test in our first suite -
+         * it tests that each feed in the allFeeds object
+         * has a URL defined and that the URL is not empty.
          */
         it('have defined URLs', function() {
             allFeeds.forEach(function( feed ) {
@@ -36,10 +32,9 @@ $(function() {
                 expect(feed.url.length).not.toBe(0);
             });
         });
-
-        /* This is our third test - it tests that each feed
-         * in the allFeeds object has a name defined
-         * and that the name is not empty.
+        /* This is our third test in our first suite -
+         * it tests that each feed in the allFeeds object
+         * has a name defined and that the name is not empty.
          */
          it('have defined names', function() {
              allFeeds.forEach(function( feed ) {
@@ -47,34 +42,42 @@ $(function() {
                  expect(feed.name.length).not.toBe(0);
              });
          });
-
     });
 
-
+    /* This is our second test suite. This suite is all
+     * about the navigation menu located in the upper-left-hand
+     * corner of the application.
+     */
     describe('The menu', function(){
-        it('is hidden by default', function(){
+        /* This is our first test in our second suite -
+         * it tests that the menu is hidden by default.
+         * I had initially thought that I would need to
+         * add an "onload" condition, but the test is within
+         * the $() function, so automatically it will not
+         * run until the document is loaded.
+         */
+        var $body = $('body'); // element
 
+        it('is hidden by default', function(){
+            expect($body.hasClass('menu-hidden')).toBe(true);
         });
 
+        /* This is our second test in our second suite -
+         * it tests that the menu changes visibility
+         * when the menu icon is clicked. This test has
+         * two expectations: 1) does the menu display when
+         * clicked and 2) does it hide when clicked again.
+         */
         it('changes visibility when menu icon is clicked', function(){
-
+            menuIcon = $('.menu-icon-link');
+            //menu displays on first click
+            menuIcon.click();
+            expect($body.hasClass('menu-hidden')).toBe(false);
+            //menu hides on second click
+            menuIcon.click();
+            expect($body.hasClass('menu-hidden')).toBe(true);
         });
     });
-
-    /* TODO: Write a new test suite named "The menu" */
-
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
-
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
-
 
     describe('Initial Entries', function(){
         it('are defined', function() {
