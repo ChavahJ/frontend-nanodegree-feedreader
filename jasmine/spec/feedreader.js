@@ -51,6 +51,16 @@ $(function() {
     });
 
 
+    describe('The menu', function(){
+        it('is hidden by default', function(){
+
+        });
+
+        it('changes visibility when menu icon is clicked', function(){
+
+        });
+    });
+
     /* TODO: Write a new test suite named "The menu" */
 
         /* TODO: Write a test that ensures the menu element is
@@ -65,6 +75,13 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 
+
+    describe('Initial Entries', function(){
+        it('are defined', function() {
+
+        });
+    });
+
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -74,6 +91,12 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 
+
+    describe('New Feed Selection', function() {
+        it('changes when a new feed is loaded', function(){
+
+        });
+    });
     /* TODO: Write a new test suite named "New Feed Selection"
 
         /* TODO: Write a test that ensures when a new feed is loaded
