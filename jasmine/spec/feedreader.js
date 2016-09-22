@@ -64,7 +64,7 @@ $(function() {
         var $body = $('body'); // element
 
         it('is hidden by default', function(){
-            expect($body.hasClass('menu-hidden')).toBeTruthy();
+            expect($body.hasClass('menu-hidden')).toBe(true);
         });
 
         /* This is our second test in our second suite -
@@ -77,10 +77,10 @@ $(function() {
             var menuIcon = $('.menu-icon-link');
             //menu displays on first click
             menuIcon.click();
-            expect($body.hasClass('menu-hidden')).toBeFalsy();
+            expect($body.hasClass('menu-hidden')).toBe(false);
             //menu hides on second click
             menuIcon.click();
-            expect($body.hasClass('menu-hidden')).not.toBeFalsy();
+            expect($body.hasClass('menu-hidden')).toBe(true);
         });
     });
 
@@ -96,13 +96,12 @@ $(function() {
          * function is called asynchronously and has completed its work.
          */
         beforeEach(function(done) {
-            loadFeed(0, done());
+            loadFeed(0, done); //need to use callback form of function
         });
 
-        it('are defined', function(done) {
-            var container = $('.feed')
+        it('are defined', function() {
+            var container = $('.feed .entry') //specifically check entries inside the feed
             expect(container.length).toBeGreaterThan(0);
-            done();
         });
     });
 
@@ -117,25 +116,25 @@ $(function() {
          * asynchronous loadFeed() function.
          */
         var container = $('.feed'),
-            title = $('.header-title'),
-            titleOne,
-            titleTwo;
+            contentOne,
+            contentTwo;
 
+        /* From reviewer: Since loadFeed is asynchronous, we can't be sure whether
+         * loadFeed(0) or loadFeed(1) will finish first. We have to ensure the
+         * two feeds are loaded serially, but we can't invoke them synchronously.
+         */
         beforeEach(function(done) {
-            container.empty(); // Empty out all previous entries
             loadFeed(0, function() {
-                titleOne = title.html(); // Get header text of the 1st entry
+                contentOne = container.html();
+                loadFeed(1, function() { //invocation chain for aforementioned issue
+                    contentTwo = container.html();
+                    done(); //now function will get called when async work is done
+                });
             });
-
-            loadFeed(1, function() {
-                titleTwo = title.html(); // Get header text of the 2nd entry
-                done(); //function will get called when async work is done
-            });
-
         });
 
         it('changes when a new feed is loaded', function(){
-            expect(titleOne).not.toMatch(titleTwo);
+            expect(contentOne).not.toMatch(contentTwo);
         });
     });
 }());
